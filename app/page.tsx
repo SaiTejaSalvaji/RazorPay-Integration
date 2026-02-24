@@ -156,7 +156,7 @@ export default function Home() {
             The gold standard for modern developers. Deploy secure, scalable payment integrations in minutes with our Razorpay-backed architecture.
           </p>
 
-          <div className="animate-in fade-in zoom-in duration-700 delay-500">
+          <div className="relative z-50 animate-in fade-in zoom-in duration-700 delay-500">
             <ModalPricing plans={PLANS} onConfirm={handleUpgrade} isLoading={isLoading} />
           </div>
         </div>
