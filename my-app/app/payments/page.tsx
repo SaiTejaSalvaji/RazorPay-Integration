@@ -122,12 +122,11 @@ export default function PaymentsPage() {
     }
 
     return (
-        <div className="min-h-screen bg-zinc-50 selection:bg-zinc-900 selection:text-white pb-12">
-            {/* 
-        Dynamic Script Loading:
-        We load the checkout script dynamically before interactivity via next/script.
-        This ensures optimal performance by not blocking page rendering.
-      */}
+        <div className="min-h-screen bg-black text-white selection:bg-blue-600 selection:text-white pb-24 relative overflow-hidden">
+            {/* Background Orbs */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-600/10 blur-[130px] rounded-full pointer-events-none" />
+
             <Script
                 id="razorpay-checkout-js"
                 src="https://checkout.razorpay.com/v1/checkout.js"
@@ -135,52 +134,65 @@ export default function PaymentsPage() {
             />
 
             {/* Hero Section */}
-            <div className="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
+            <div className="relative w-full min-h-[75vh] flex items-center justify-center overflow-hidden border-b border-white/5 py-24">
                 <Image
                     src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
                     alt="Premium workspace background"
                     fill
-                    className="object-cover brightness-50"
+                    className="object-cover opacity-40 grayscale-[0.2]"
                     priority
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
-                    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-center mb-6 drop-shadow-lg">
-                        Elevate Your Workflow
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black" />
+
+                <div className="relative z-10 flex flex-col items-center justify-center px-4 max-w-4xl">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-6 animate-in fade-in slide-in-from-top-4 duration-1000">
+                        <Zap className="h-3 w-3 fill-current" />
+                        Next-Gen Checkout Flow
+                    </div>
+                    <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-center mb-6 leading-[0.9] animate-in fade-in slide-in-from-bottom-8 duration-700">
+                        Elevate Your <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Workflow</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-zinc-200 text-center max-w-2xl font-medium mb-10">
-                        Join thousands of developers building scalable, production-ready applications with seamless integrated payments.
+                    <p className="text-lg md:text-xl text-zinc-400 text-center max-w-2xl font-medium mb-12 leading-relaxed animate-in fade-in duration-1000 delay-200">
+                        The gold standard for modern developers. Deploy secure, scalable payment integrations in minutes with our Razorpay-backed architecture.
                     </p>
 
-                    {/* Modal Pricing Trigger */}
-                    <ModalPricing plans={PLANS} onConfirm={handleUpgrade} isLoading={isLoading} />
+                    <div className="animate-in fade-in zoom-in duration-700 delay-500">
+                        <ModalPricing plans={PLANS} onConfirm={handleUpgrade} isLoading={isLoading} />
+                    </div>
                 </div>
             </div>
 
             {/* Value Proposition Section */}
-            <div className="max-w-5xl mx-auto px-4 mt-20">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div className="flex flex-col items-center text-center space-y-4 p-6 bg-white rounded-3xl shadow-sm border border-zinc-100">
-                        <div className="h-14 w-14 bg-zinc-100 rounded-full flex items-center justify-center text-zinc-900">
-                            <Zap className="h-7 w-7" />
+            <div className="max-w-6xl mx-auto px-6 py-20 relative z-20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="group flex flex-col items-start text-left space-y-4 p-8 bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500 hover:translate-y-[-4px]">
+                        <div className="h-12 w-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-500">
+                            <Zap className="h-6 w-6" />
                         </div>
-                        <h3 className="text-xl font-bold">Lightning Fast</h3>
-                        <p className="text-zinc-600">Built on Next.js App Router for optimal rendering performance.</p>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">Lightning Fast</h3>
+                            <p className="text-zinc-500 leading-relaxed font-medium">Built on Next.js 14 for sub-second rendering and instant interaction metrics.</p>
+                        </div>
                     </div>
 
-                    <div className="flex flex-col items-center text-center space-y-4 p-6 bg-white rounded-3xl shadow-sm border border-zinc-100">
-                        <div className="h-14 w-14 bg-zinc-100 rounded-full flex items-center justify-center text-zinc-900">
-                            <ShieldCheck className="h-7 w-7" />
+                    <div className="group flex flex-col items-start text-left space-y-4 p-8 bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] border border-white/5 hover:border-purple-500/30 transition-all duration-500 hover:translate-y-[-4px]">
+                        <div className="h-12 w-12 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 group-hover:scale-110 group-hover:bg-purple-500/20 transition-all duration-500">
+                            <ShieldCheck className="h-6 w-6" />
                         </div>
-                        <h3 className="text-xl font-bold">Enterprise Security</h3>
-                        <p className="text-zinc-600">Secure server-side order generation and signature verification.</p>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">Secure by Design</h3>
+                            <p className="text-zinc-500 leading-relaxed font-medium">Server-side HMAC-256 order signatures ensure zero client-side vulnerability.</p>
+                        </div>
                     </div>
 
-                    <div className="flex flex-col items-center text-center space-y-4 p-6 bg-white rounded-3xl shadow-sm border border-zinc-100">
-                        <div className="h-14 w-14 bg-zinc-100 rounded-full flex items-center justify-center text-zinc-900">
-                            <Code className="h-7 w-7" />
+                    <div className="group flex flex-col items-start text-left space-y-4 p-8 bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] border border-white/5 hover:border-zinc-500/30 transition-all duration-500 hover:translate-y-[-4px]">
+                        <div className="h-12 w-12 bg-zinc-500/10 rounded-2xl flex items-center justify-center text-zinc-400 group-hover:scale-110 group-hover:bg-zinc-500/20 transition-all duration-500">
+                            <Code className="h-6 w-6" />
                         </div>
-                        <h3 className="text-xl font-bold">Modern Stack</h3>
-                        <p className="text-zinc-600">Powered by React, Tailwind CSS, TypeScript and shadcn/ui.</p>
+                        <div>
+                            <h3 className="text-xl font-bold mb-2">Developer Experience</h3>
+                            <p className="text-zinc-500 leading-relaxed font-medium">Clean TypeScript architecture with reusable primitives using shadcn/ui.</p>
+                        </div>
                     </div>
                 </div>
             </div>
