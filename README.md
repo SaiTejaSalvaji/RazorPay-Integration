@@ -63,10 +63,10 @@ This repository includes a pre-configured `.env.local` testing framework:
 
 ```env
 # BACKEND ONLY (Used to sign transactions internally)
-RAZORPAY_KEY_SECRET=fo6gMoyIFI0FWqXcziu0bO0q
+RAZORPAY_KEY_SECRET=your_test_key_secret_here
 
 # FRONTEND SHARED (Required for opening the Checkout Widget)
-NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_test_SK1cWHi63pnO29
+NEXT_PUBLIC_RAZORPAY_KEY_ID=your_test_key_id_here
 ```
 
 > **Security Note:** Never expose `RAZORPAY_KEY_SECRET` under standard `NEXT_PUBLIC` contexts!
