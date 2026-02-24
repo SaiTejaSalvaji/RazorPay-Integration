@@ -4,7 +4,7 @@ import { useState } from "react";
 import Script from "next/script";
 import Image from "next/image";
 import { ModalPricing, Plan } from "@/components/ui/modal-pricing";
-import { Code, ShieldCheck, Zap } from "lucide-react";
+import { Code, ShieldCheck, Zap, Github, Terminal } from "lucide-react";
 
 // Predefined available plans
 const PLANS: Plan[] = [
@@ -122,7 +122,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-blue-600 selection:text-white pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-black text-white selection:bg-blue-600 selection:text-white pb-24 relative overflow-hidden font-sans">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-600/10 blur-[130px] rounded-full pointer-events-none" />
@@ -134,64 +134,93 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <div className="relative w-full min-h-[75vh] flex items-center justify-center overflow-hidden border-b border-white/5 py-24">
+      <div className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-white/5 py-24">
         <Image
-          src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-          alt="Premium workspace background"
+          src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          alt="Source code background"
           fill
-          className="object-cover opacity-40 grayscale-[0.2] pointer-events-none"
+          className="object-cover opacity-20 grayscale pointer-events-none"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/80 to-black pointer-events-none" />
 
-        <div className="relative z-20 flex flex-col items-center justify-center px-4 max-w-4xl pointer-events-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-6 animate-in fade-in slide-in-from-top-4 duration-1000">
-            <Zap className="h-3 w-3 fill-current" />
-            Next-Gen Checkout Flow
+        <div className="relative z-20 flex flex-col items-center justify-center px-4 max-w-5xl pointer-events-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-8 animate-in fade-in slide-in-from-top-4 duration-1000">
+            <Terminal className="h-3 w-3" />
+            Production Reference Template
           </div>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-center mb-6 leading-[0.9] animate-in fade-in slide-in-from-bottom-8 duration-700">
-            Elevate Your <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Workflow</span>
+
+          <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-center mb-8 leading-[0.9] bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-500">
+            Master <span className="text-blue-500 font-mono">Razorpay</span> <br />Integrations
           </h1>
-          <p className="text-lg md:text-xl text-zinc-400 text-center max-w-2xl font-medium mb-12 leading-relaxed animate-in fade-in duration-1000 delay-200">
-            The gold standard for modern developers. Deploy secure, scalable payment integrations in minutes with our Razorpay-backed architecture.
+
+          <p className="text-lg md:text-xl text-zinc-400 text-center max-w-3xl font-medium mb-12 leading-relaxed">
+            A definitive, open-source reference for building secure payment flows with Next.js 14.
+            Includes server-side order generation, verified security patterns, and premium Tailwind UI.
           </p>
 
-          <div className="relative z-30 animate-in fade-in zoom-in duration-700 delay-500">
+          <div className="flex flex-col sm:flex-row items-center gap-6 relative z-30">
             <ModalPricing plans={PLANS} onConfirm={handleUpgrade} isLoading={isLoading} />
+
+            <a
+              href="https://github.com/SaiTejaSalvaji/RazorPay-Integration"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all font-bold text-lg"
+            >
+              <Github className="h-5 w-5" />
+              Reference Code
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Value Proposition Section */}
-      <div className="max-w-6xl mx-auto px-6 py-20 relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="group flex flex-col items-start text-left space-y-4 p-8 bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500 hover:translate-y-[-4px]">
-            <div className="h-12 w-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-500">
-              <Zap className="h-6 w-6" />
+      {/* Reference Detail Section */}
+      <div className="max-w-6xl mx-auto px-6 py-24 relative z-20">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Code Overview</h2>
+          <p className="text-zinc-500 text-lg max-w-2xl mx-auto font-medium">
+            Standardized boilerplate for modern full-stack payment processing.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          <div className="group p-8 bg-zinc-900/40 backdrop-blur-xl rounded-[2.5rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500">
+            <div className="h-14 w-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-8">
+              <ShieldCheck className="h-7 w-7" />
             </div>
-            <div>
-              <h3 className="text-xl font-bold mb-2">Lightning Fast</h3>
-              <p className="text-zinc-500 leading-relaxed font-medium">Built on Next.js 14 for sub-second rendering and instant interaction metrics.</p>
+            <h3 className="text-2xl font-bold mb-4">Security First</h3>
+            <p className="text-zinc-500 leading-relaxed font-medium mb-6">
+              Protects your <code className="text-blue-400 font-mono text-sm px-1 bg-blue-400/10 rounded">RAZORPAY_SECRET</code> by isolating logic in isolated Node.js server runtimes.
+            </p>
+            <div className="text-[11px] font-mono text-zinc-600 bg-black/50 p-4 rounded-xl border border-white/5">
+              app/api/create-order/route.ts
             </div>
           </div>
 
-          <div className="group flex flex-col items-start text-left space-y-4 p-8 bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] border border-white/5 hover:border-purple-500/30 transition-all duration-500 hover:translate-y-[-4px]">
-            <div className="h-12 w-12 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 group-hover:scale-110 group-hover:bg-purple-500/20 transition-all duration-500">
-              <ShieldCheck className="h-6 w-6" />
+          <div className="group p-8 bg-zinc-900/40 backdrop-blur-xl rounded-[2.5rem] border border-white/5 hover:border-purple-500/30 transition-all duration-500">
+            <div className="h-14 w-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 mb-8">
+              <Zap className="h-7 w-7" />
             </div>
-            <div>
-              <h3 className="text-xl font-bold mb-2">Secure by Design</h3>
-              <p className="text-zinc-500 leading-relaxed font-medium">Server-side HMAC-256 order signatures ensure zero client-side vulnerability.</p>
+            <h3 className="text-2xl font-bold mb-4">App Router</h3>
+            <p className="text-zinc-500 leading-relaxed font-medium mb-6">
+              Utilizes Next.js 14 features like <code className="text-purple-400 font-mono text-sm px-1 bg-purple-400/10 rounded">next/script</code> and Server Components for optimal perf.
+            </p>
+            <div className="text-[11px] font-mono text-zinc-600 bg-black/50 p-4 rounded-xl border border-white/5">
+              app/page.tsx (use client)
             </div>
           </div>
 
-          <div className="group flex flex-col items-start text-left space-y-4 p-8 bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] border border-white/5 hover:border-zinc-500/30 transition-all duration-500 hover:translate-y-[-4px]">
-            <div className="h-12 w-12 bg-zinc-500/10 rounded-2xl flex items-center justify-center text-zinc-400 group-hover:scale-110 group-hover:bg-zinc-500/20 transition-all duration-500">
-              <Code className="h-6 w-6" />
+          <div className="group p-8 bg-zinc-900/40 backdrop-blur-xl rounded-[2.5rem] border border-white/5 hover:border-zinc-500/30 transition-all duration-500">
+            <div className="h-14 w-14 bg-zinc-500/10 rounded-2xl flex items-center justify-center text-zinc-400 mb-8">
+              <Code className="h-7 w-7" />
             </div>
-            <div>
-              <h3 className="text-xl font-bold mb-2">Developer Experience</h3>
-              <p className="text-zinc-500 leading-relaxed font-medium">Clean TypeScript architecture with reusable primitives using shadcn/ui.</p>
+            <h3 className="text-2xl font-bold mb-4">Shadcn Primitives</h3>
+            <p className="text-zinc-500 leading-relaxed font-medium mb-6">
+              Composable UI components built on Radix UI for maximum accessibility and developer flexibility.
+            </p>
+            <div className="text-[11px] font-mono text-zinc-600 bg-black/50 p-4 rounded-xl border border-white/5">
+              components/ui/modal-pricing.tsx
             </div>
           </div>
         </div>
