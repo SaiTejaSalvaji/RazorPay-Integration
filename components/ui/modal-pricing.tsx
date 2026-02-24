@@ -43,11 +43,9 @@ export function ModalPricing({ plans, onConfirm, isLoading }: ModalPricingProps)
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        {/* The button that opens the modal */}
         <Button
           size="lg"
-          onClick={() => console.log("Upgrade button clicked")}
-          className="px-8 py-6 text-lg rounded-full font-semibold shadow-xl transition-transform hover:scale-105 relative z-50 pointer-events-auto"
+          className="px-8 py-6 text-lg rounded-full font-semibold shadow-xl transition-transform hover:scale-105 bg-white text-black hover:bg-zinc-200"
         >
           Upgrade Plan
         </Button>

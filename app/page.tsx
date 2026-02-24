@@ -139,12 +139,12 @@ export default function Home() {
           src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
           alt="Premium workspace background"
           fill
-          className="object-cover opacity-40 grayscale-[0.2]"
+          className="object-cover opacity-40 grayscale-[0.2] pointer-events-none"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black pointer-events-none" />
 
-        <div className="relative z-10 flex flex-col items-center justify-center px-4 max-w-4xl">
+        <div className="relative z-20 flex flex-col items-center justify-center px-4 max-w-4xl pointer-events-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-6 animate-in fade-in slide-in-from-top-4 duration-1000">
             <Zap className="h-3 w-3 fill-current" />
             Next-Gen Checkout Flow
@@ -156,7 +156,7 @@ export default function Home() {
             The gold standard for modern developers. Deploy secure, scalable payment integrations in minutes with our Razorpay-backed architecture.
           </p>
 
-          <div className="relative z-50 animate-in fade-in zoom-in duration-700 delay-500">
+          <div className="relative z-30 animate-in fade-in zoom-in duration-700 delay-500">
             <ModalPricing plans={PLANS} onConfirm={handleUpgrade} isLoading={isLoading} />
           </div>
         </div>
